@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PadreSergio House | Error 404</title>
+    
+    <style>
+        :root {
+            --verde-primario: #5e7153;
+            --crema-sfondo: #faf9f6;
+            --testo-scuro: #333333;
+        }
+
+        body { 
+            margin: 0; 
+            font-family: 'Helvetica Neue', Arial, sans-serif; 
+            background-color: var(--crema-sfondo); 
+            color: var(--testo-scuro); 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            text-align: center; 
+            padding: 20px; 
+            box-sizing: border-box; 
+        }
+
+        body.it [lang="en"] { display: none !important; }
+        body.en [lang="it"] { display: none !important; }
+
+        .lang-switch { position: absolute; top: 20px; right: 20px; display: flex; gap: 10px; }
+        .lang-btn { cursor: pointer; font-size: 24px; opacity: 0.5; border: none; background: none; transition: 0.3s; }
+        .lang-btn.active { opacity: 1; transform: scale(1.2); }
+
+        .icon { font-size: 80px; margin-bottom: 20px; }
+        h1 { color: var(--verde-primario); font-family: 'Georgia', serif; font-size: 32px; margin: 0 0 15px 0; }
+        p { color: #666; margin-bottom: 30px; font-size: 16px; line-height: 1.6; max-width: 500px; }
+        
+        .btn-home { 
+            background-color: var(--verde-primario); 
+            color: white; 
+            padding: 16px 35px; 
+            border-radius: 30px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            box-shadow: 0 4px 15px rgba(94, 113, 83, 0.3);
+            transition: 0.3s;
+        }
+        .btn-home:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body class="it">
+
+    <div class="lang-switch">
+        <button class="lang-btn active" id="btn-it" onclick="setLang('it')">🇮🇹</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧</button>
+    </div>
+
+    <div class="icon">🧭</div>
+
+    <h1 lang="it">Pagina non trovata</h1>
+    <h1 lang="en">Page not found</h1>
+    
+    <p lang="it">L'indirizzo inserito non è corretto. Non preoccuparti, clicca qui sotto per tornare al sito ufficiale di PadreSergio House.</p>
+    <p lang="en">The address entered is incorrect. Don't worry, click below to return to the official PadreSergio House website.</p>
+    
+    <a href="https://padresergiohouseapulia.github.io/padresergio_web/" class="btn-home">
+        <span lang="it">🏡 Vai al Sito Ufficiale</span>
+        <span lang="en">🏡 Go to Official Website</span>
+    </a>
+
+    <script>
+        function setLang(lang) {
+            document.body.className = lang;
+            document.getElementById('btn-it').classList.remove('active');
+            document.getElementById('btn-en').classList.remove('active');
+            document.getElementById('btn-' + lang).classList.add('active');
+        }
+    </script>
+</body>
+</html>
